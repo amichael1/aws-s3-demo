@@ -19,12 +19,12 @@ public class S3FileService implements FileService {
     @Override
     public void saveFileToS3(RemoteFile file) {
         PutObjectRequest objectRequest = PutObjectRequest.builder()
-                .bucket(file.bucketName())
-                .key(file.key())
+                .bucket(file.getBucketName())
+                .key(file.getKey())
                 .build();
 
 
-        s3Client.putObject(objectRequest, RequestBody.fromByteBuffer(ByteBuffer.wrap(file.content().getBytes())));
+        s3Client.putObject(objectRequest, RequestBody.fromByteBuffer(ByteBuffer.wrap(file.getContent().getBytes())));
     }
 
     @Override

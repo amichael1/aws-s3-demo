@@ -33,6 +33,7 @@ public class S3FileServiceTest {
 
     @Test
     void saveFileToPath() {
+
         PutObjectResponse objectResponse = PutObjectResponse.builder().build();
         Mockito.when(s3Client.putObject(Mockito.any(PutObjectRequest.class), Mockito.any(RequestBody.class))).thenReturn(objectResponse);
 
@@ -54,6 +55,6 @@ public class S3FileServiceTest {
         Mockito.verify(s3Client, times(1))
                 .getObjectAsBytes(Mockito.any(GetObjectRequest.class));
 
-        Assert.isTrue(file.content().equals(TEST_STRING), "File content is equal to the test string");
+        Assert.isTrue(file.getContent().equals(TEST_STRING), "File content is equal to the test string");
     }
 }

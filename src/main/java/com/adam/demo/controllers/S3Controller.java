@@ -24,7 +24,7 @@ public class S3Controller {
         fileService.saveFileToS3(file);
 
         return ResponseEntity
-                .created(new URI(String.format(fileUrl, file.bucketName(), file.key())))
+                .created(new URI(String.format(fileUrl, file.getBucketName(), file.getKey())))
                 .body(file);
     }
 

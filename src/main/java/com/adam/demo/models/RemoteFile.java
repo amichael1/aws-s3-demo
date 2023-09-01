@@ -1,5 +1,15 @@
 package com.adam.demo.models;
 
-import lombok.Builder;
+import lombok.*;
+
 @Builder
-public record RemoteFile(String bucketName, String key, String content){ }
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class RemoteFile {
+    private String bucketName;
+    private String key;
+    private String content;
+}
