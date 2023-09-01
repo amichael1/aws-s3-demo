@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 @RequiredArgsConstructor
 public class S3Controller {
     private static final Logger logger = LoggerFactory.getLogger(S3Controller.class);
-    private static final String fileUrl = "https://{0}.s3.us-west-2.amazonaws.com/{1}";
+    private static final String fileUrl = "https://%s.s3.us-west-2.amazonaws.com/%s";
     private final FileService fileService;
 
     @PostMapping("/file")
